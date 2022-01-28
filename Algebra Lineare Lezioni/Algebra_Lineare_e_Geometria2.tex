@@ -1,0 +1,376 @@
+% =============================== MODULO 2 ========================================
+
+\section{Modulo 2}
+
+\subsection{Equazioni Parametriche e Cartesiane}
+
+\[
+V = \{ (a,2b + a, b) \in \mathbb{R}^3 : a,b \in \mathbb{R}\}
+\]
+\textsf{\small Equazioni parametriche di V : viene presentato un generico elemento al variare di parametri (a e b in questo caso).}\\
+\[
+\boxed{\text{Eq. parametriche}} \longleftrightarrow \boxed{\text{Insieme di generatori}}
+\]
+
+\textsf{\small Infatti }\\
+\(
+U = <(\color{red}\boxed{\normalcolor 1}\normalcolor,3,5,-1),(\color{blue}\boxed{\normalcolor 2}\normalcolor,1,7,6)> \text{ insieme di generatori}
+\)\\
+\(
+U = \{ (\color{red}\boxed{\normalcolor a}\normalcolor + \color{blue}\boxed{\normalcolor 2b}\normalcolor, 3a + b, 5a + 7b, -a + 6b) : a,b \in \mathbb{R}\} \text{ eq. parametriche}
+\)\\
+\(
+W = \{ (5 - 2t, 5 + t, t) \in \mathbb{R}^3 : s,t \in \mathbb{R}\} \text{ eq. parametriche}
+\)\\
+\(
+W = <(1,1,0),(-2,1,1)> \text{ (insieme di generatori)}
+\)\\
+
+\subsection{Equazioni cartesiane}
+
+\begin{definition}[Equazioni Cartesiane]
+	Sia W un sottospazio di $\mathbb{R}^n$, un sistema lineare omogeneo (in n variabili) si dice m \textcolor{ForestGreen}{sistema di equazioni cartesiane di W.} (o semplicemente eq. cartesiane di W) se W è l'insieme delle sol. del sistema stesso.
+\end{definition}
+\vskip-2.5mm
+\textcolor{red}{Come si determinano le equazioni cartesiane?}\\
+
+\textcolor{red}{Metodo 1: eliminazione dei parametri}\\
+
+\(
+V = <(1,2,3),(1,1,1)> \subseteq \mathbb{R}^3
+\)\\
+\(
+(x,y,z) = a(1,2,3) + b(1,1,1)
+\)\\
+\(
+x = a + b \hspace{0.3cm} y = 2a + b \hspace{0.3cm} z = 3a + b
+\)\\
+\(
+\text{Dalla terza } b = z - 3a \text{ e lo sostituiamo nelle altre due }
+\)
+\begin{align*}
+	&x = a + (z - 3a) & y = 2a + (z - 3a)\\
+	&x = z - 2a & y = z - a\\
+\end{align*}
+\vskip-2.5mm
+\textsf{\small Dalla 2ª equazione ricaviamo $a = z - y$, la sostituiamo nella prima e otteniamo $x = z - 2(z - y) = -z + 2y$ }\\
+\[
+\color{red}\boxed{\normalcolor x - 2y + z = 0} \normalcolor \text{ è l'equazione cartesiana.}
+\]
+\enlargethispage{1\linewidth}
+\textsf{\small E' buona norma verificare che i vetotri generatori (1,1,1) e (1,2,3) soddisfano questa equazione.}\\
+\vskip-2.5mm
+\begin{align*}
+	&(1,1,1) & (1,2,3) \\
+	&1 - 2(1) + 1 = 0 \hspace{.1cm}\textcolor{ForestGreen}{\checkmark} & 1 -2(2) + 3 = 0 \hspace{.1cm}\textcolor{ForestGreen}{\checkmark}\\
+\end{align*}
+
+\newpage
+
+\textcolor{red}{Metodo 2: rango}\\
+
+$V = <(1,1,1),(1,2,3)>$\\
+\(
+(x,y,z) \in V \Leftrightarrow \text{ è combinazione lineare di (1,1,1),(1,2,3)}
+\)\\
+\textsf{\small Osserviamo che (1,1,1) e (1,2,3) formano una base}\\
+\(
+(x,y,z) \in V \Leftrightarrow (x,y,z),(1,1,1) \text{ e } (1,2,3) \text{ sono dipendenti}
+\)\\
+
+$\Leftrightarrow$
+\(
+\text{rg}
+\begin{pmatrix}
+	1 & 1 & 1 \\
+	1 & 2 & 3 \\
+	x & y & z
+\end{pmatrix}
+= 2 \underset{\text{2ª riga = 2ª riga - 1ª riga}}{\overset{\text{3ª riga = 3ª riga - x (1ª riga)}}{\longrightarrow}}
+\begin{pmatrix}
+	1 & 1 & 1 \\
+	0 & 1 & 2 \\
+	0 & y-x & z-x \\
+\end{pmatrix}
+\underset{\text{3ª riga = 3ª riga - y - x(2ª riga)}}{\longrightarrow}
+\begin{pmatrix}
+	1 & 1 & 1 \\
+	0 & 1 & 2 \\
+	0 & 0 & z - x - 2(y - x) \\
+\end{pmatrix}
+\)\\
+
+\textsf{\small il rango è 2 $\Leftrightarrow$ $\textcolor{red}{\boxed{$\normalcolor x - 2y + z = 0$}}$}\\
+
+\textcolor{red}{\underline{Osservazione}}\\
+\textsf{\small Ogni eq. lineare omogenea può essere "pensata" come ad un vettore, guardando ai suoi coefficienti}
+\[
+x - 2z = 0 \leftrightarrow (1,0,-2)
+\]
+\textsf{\small Possiamo quindi parlare di eq. linearmente dipendenti o indipendenti. Se una eq. di un sistema è dipendente dalle altre la posso eliminare senza modificare la soluzione.}\\
+\textcolor{red}{\underline{FATTO}:} \textsf{\small Un sottospazio $W$ di $\mathbb{R}^{\textcolor{red}{n}}$ ha dimensione \textcolor{red}{d} se e solo se è dato da \textcolor{red}{n - d} equazioni lineari linearmente indipendenti.}\\
+\textcolor{red}{\underline{Esempio}:} $W \subseteq \mathbb{R}^3 \hspace{0.3cm} dim W = 2$ allora W è dato da 3 - 2 = 1 eq. lineari indipendenti\\
+\textsf{\small se $U \subseteq \mathbb{R}^5 \hspace{0.3cm} dim(U) = 2$ allora U è dato da 5 -2 = 3 eq.lineari indipendenti}\\
+$W = \{ (x_1, \dots, x_5) \in \mathbb{R}^5 : x_1 - 2x_4 = 0, x_2 + 3x_3 = 0, x_5 = 0\}$\\
+\textsf{\small dim W? Le tre equazioni sono indipendenti?}\\
+
+\(
+\begin{matrix*}
+	\color{red}\boxed{\normalcolor 1} \normalcolor& 0 & 0 & -2 & 0 \\
+	0 & \color{red}\boxed{\normalcolor 1} \normalcolor& 3 & 0 & 0 \\
+	0 & 0 & 0 & 0 & \color{red}\boxed{\normalcolor 1} \normalcolor\\
+\end{matrix*}
+\)
+\textsf{\small ha rango 3}\\
+$\Rightarrow$ \textsf{\small le tre equazioni sono indipendenti.}\\
+$\Rightarrow$ \textsf{\small dim W = 5 - 3 = 2} \textsf{\small vettori, ovvero dimensione di W, qui non calcoliamo le eq. ma la dim.}
+
+\textcolor{red}{Metodo 3: "Ad occhio"}\\
+\textsf{\small Se v ha dimensione d in $\mathbb{R}^n$ e conosciamo una base $B = \{b_1, \dots, b_d \}$, allora "basta" trovare n-d eq. lineari omogenee soddisfatte dai vettori di B.}\\
+\textcolor{red}{\underline{Esempio}:} $W = <(1,1,1),(1,2,3)>$\\
+$dim W = 2 \text{ dentro } \mathbb{R}^3 \Rightarrow \text{ ci basta un'equazione}$\\
+$\mathbb{R}^3 - dim W = 3 - 2 = 1 \text{ eq.lineare}$\\
+\color{red}\boxed{$\normalcolor x - 2y + z = 0$}\normalcolor \\
+\textcolor{red}{\underline{Esempio}:} $U = <(1,2,3,0),(2,1,0,1)> \subseteq \mathbb{R}^4$\\
+$dim U = 2 \hspace{0.3cm} \mathbb{R}^4 - dim U = 2 \text{ equazioni}$\\
+\enlargethispage{1\linewidth}
+\noindent\begin{minipage}{.5\linewidth}
+	\(
+	\begin{cases*}
+		x + z = 2y \\
+		x + y - z - 3t = 0\\
+	\end{cases*}
+	\)
+\end{minipage}
+\begin{minipage}{.45\linewidth}
+	\(
+	\begin{cases*}
+		2x - y - 3t = 0\\
+		3x - z - 6t = 0\\
+	\end{cases*}
+	\)
+\end{minipage}
+
+\newpage
+
+\noindent\begin{minipage}{.5\linewidth}
+	\(
+	\begin{matrix*}
+		1 & -2 & 1 & 0 \\
+		1 & 1 & -1 & -3 \\
+		2 & - 1 & 0 & 3 \\
+		3 & 0 & -2 & -6 \\
+	\end{matrix*}
+	\)
+\end{minipage}
+\begin{minipage}{.45\linewidth}
+	\textsf{\small 3ª riga = somma delle prime due quindi la eliminiamo}\\
+	\textsf{\small 4ª riga = prima riga + 2(2ª riga) quindi la cancelliamo}\\
+	\textsf{\small rg = 2}\\
+\end{minipage}
+
+\textcolor{red}{\underline{Esempio}:} $W = <(0,1,1),(0,-2,3)> \hspace{0.3cm} 3 - 2 = 1$\\
+
+\textcolor{red}{Coordinate rispetto ad una base (ordinata)}\\
+$B = \{ b_1, \dots, b_d\} \text{ base}$\\
+$B = (b_1, \dots, b_d) \text{ base ordinata , cioè in cui è importante l'ordine (usiamo le tonde anzichè le graffe)}$\\
+
+\textcolor{red}{\underline{Esempio}:} $V = <(1,1,1),(1,2,3)>$\\
+$B = \left( (1.1.1),(1,2,3) \right) \hspace{0.3cm} D =\left( (2.3.4),(0,1,2) \right)$\\
+$C = \left( (1,2,3),(1,1,1)\right) \hspace{0.3cm} \textsf{\small sono tre basi ordinate di V}$\\
+\textsf{\small Eq. di V è $x - 2y + z = 0$ i vettori di D soddisfano questa equazione}\\
+$\Rightarrow$ \textsf{\small D è una base.}\\
+\textsf{\small Dato un qualunque vettore $v \in V$ usando la base B possiamo trovare $\alpha_1, \alpha_2$, tale che }
+\[
+v = \alpha_1(1,1,1) + \alpha_2(1,2,3))
+\]
+
+\textcolor{red}{\underline{Esempio}:} $v = (-3, 1, 5) \in V \hspace{0.3cm} (-3,1,5) = \textcolor{red}{-7}(1,1,1) + \textcolor{red}{4}(1,2,3)$\\
+
+\textsf{\small I due coefficienti di $\alpha_1,\alpha_2$ si dicono \textcolor{red}{coordinate di v rispetto alla base B.}}\\
+\textsf{\small Scriviamo $v = (\alpha_1, \alpha_2)_\text{B}$}\\
+\textsf{\small Nell'esempio: $(-3,1,5) = (-7,4)_\text{B}$}\\
+\textsf{\small Se cambiamo base (ordinata) cambieranno anche le coordinate.}
+\[
+(-3,1,5) = (4,-7)_\text{C} \hspace{0.3cm} \textsf{\small La base C è quella in cui avevamo invertito i vettori.}
+\]
+%\textsf{\small Determinare le coordinate di v rispetto alla base $\Delta$.}\\
+
+\subsubsection{Cambiamento di coordinate}
+
+\textsf{\small Supponiamo di avere due basi di uno sp. V}\\
+\begin{align*}
+	B = (b_1, \dots, b_d) & C = (c_1, \dots, c_d) \\
+	v = (x_1, \dots, x_d)_B & = (y_1, \dots, y_d)_C \\
+\end{align*}\vskip -1.0cm
+\textsf{\small C'è una formula per passare dalle x alle y?}\\
+\(
+B = ((1,1,1),(1,2,3)) \hspace{0.3cm} C = ((2,3,4),(0,1,2))
+\)
+\centering $(x_1, x_2)_B = (y_1, y_2)_C $\\
+\textcolor{red}{1° passo:} \textsf{\small calcoliamo le coordinate dei vettori $b_1$ e $b_2$ rispetto alla base c.}
+\begin{align*}
+	b_1 = (1,1,1) &= \textcolor{ForestGreen}{1/2}(2,3,4) \textcolor{ForestGreen}{-1/2}(0,1,2) = \textcolor{ForestGreen}{(1/2, -1/2)_C}\\
+	b_2 = (1,2,3) &= \textcolor{ForestGreen}{1/2}(2,3,4) \textcolor{ForestGreen}{+1/2}(0,1,2) = \textcolor{ForestGreen}{(1/2, 1/2)_C}
+\end{align*}
+\newpage
+\flushleft\textcolor{red}{2° passo:} \textsf{\small cambio di coordinate}\\\vskip-1.0cm
+\begin{align*}
+	v = (x_1, x_2)_B &= x_1 b_1 + x_2 b_2 \\
+	&= x_1(\frac{1}{2}C_1 - \frac{1}{2}C_2) + x_2(\frac{1}{2}C_1 + \frac{1}{2}C_2) \\
+	&= (\frac{1}{2}x_1 + \frac{1}{2}x_2)C_1 + (-\frac{1}{2}x_1 + \frac{1}{2}x_2)C_2
+\end{align*}
+
+\centering\textcolor{red}{$\boxed{\normalcolor y_1 = \frac{1}{2}x_1 + \frac{1}{2}x_2 \hspace{0.6cm} y_2 = -\frac{1}{2}x_1 + \frac{1}{2}x_2}$}
+
+\flushleft
+\(
+\begin{pmatrix}
+	y_1 \\
+	y_2
+\end{pmatrix}
+=
+\underbrace{
+\begin{pmatrix}
+	1/2 & 1/2 \\
+	-1/2 & 1/2 
+\end{pmatrix}
+} _{\text{chi è questa matrice?}}
+\begin{pmatrix}
+	x_1 \\
+	x_2
+\end{pmatrix}
+\)
+
+\subsection{MATRICE DEL CAMBIO DI BASE}
+\begin{definition}
+	V spazio vettoriale di dimensione d \\
+	$B = (b_1, \dots, b_d) \hspace{0.6cm} C = (c_1, \dots, c_d)$ basi di V.\\
+	$b_{\boxed{1}} = (a_{1\boxed{1}}, a_{2\boxed{1}}, \dots, a_{d\boxed{1}})_C$\\
+	$b_{\color{ForestGreen}\boxed{\normalcolor 2}} = (a_{1\color{ForestGreen}\boxed{\normalcolor 2}}, a_{2\color{ForestGreen}\boxed{\normalcolor 2}}, \dots, a_{d\color{ForestGreen}\boxed{\normalcolor 2}})_C$\\
+	$b_{\color{red}\boxed{\normalcolor d}} = (a_{1\color{red}\boxed{\normalcolor d}}, a_{2\color{red}\boxed{\normalcolor d}}, \dots, a_{d\color{red}\boxed{\normalcolor d}})_C$\\
+	\[
+	\textcolor{red}{M^B_{C} =}
+	\begin{pmatrix}
+		a_{11} & a_{12} & \dots & a_{1d} \\
+		a_{12} & a_{22} & \dots & a_{2d} \\
+		\vdots & \vdots & \ddots & \vdots \\
+		a_{d1} & a_{d2} & \dots & a_{dd} \\
+	\end{pmatrix}
+	\]
+\end{definition}
+
+\textcolor{red}{Esempio: } $B = ((1,1,1),(1,2,3)), C = ((2,3,4),(0,1,2))$\\
+\[
+M^B_{C} =
+\begin{pmatrix}
+	1/2 & 1/2 \\
+	-1/2 & 1/2 \\
+\end{pmatrix}
+\]
+\sethlcolor{green}
+v = \hl{1} $\cdot b_1 +$ \sethlcolor{orange}\hl{2} $\cdot b_2 = (3,5,7) =$ (\sethlcolor{green}\hl{1},\sethlcolor{orange}\hl{2}$)_B = \color{ForestGreen} (3/2, 1/2)_C$\\ \normalcolor
+\textsf{\small Quali sono le coordinate di v rispetto a C}\\
+\(
+\begin{pmatrix}
+	y_1 \\
+	y_2
+\end{pmatrix}
+=
+\begin{pmatrix}
+	1/2 & 1/2 \\
+	-1/2 & 1/2 \\
+\end{pmatrix}
+\begin{pmatrix}
+	1 \\
+	2 \\
+\end{pmatrix}
+=
+\begin{pmatrix}
+	3/2 \\
+	1/2
+\end{pmatrix}
+\)
+
+\textcolor{red}{Esempio: } $B = ((1,1,1),(1,2,3)) \hspace{0.6cm} C = ((1,2,3),(1,1,1))$\\
+$b_1 = c_2 = 0 \cdot c_ 1 + 1 \cdot c_2 =$ (\sethlcolor{yellow}\hl{0,1}$)_C$\\
+$b_2 = c_1 =$ (\sethlcolor{orange}\hl{1,0}$)_C$\\
+\(
+M^B_{C} =
+\begin{pmatrix}
+	$\sethlcolor{yellow}\hl{0}$ & $\sethlcolor{orange}\hl{1}$ \\
+	$\sethlcolor{yellow}\hl{1}$ & $\sethlcolor{orange}\hl{0}$ \\
+\end{pmatrix}
+\)
+\(
+\begin{pmatrix}
+	y_1 \\
+	y_2
+\end{pmatrix}
+=
+\begin{pmatrix}
+	0 & 1 \\
+	1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+	x_1 \\
+	x_2
+\end{pmatrix}
+=
+\begin{pmatrix}
+	x_2 \\
+	x_1
+\end{pmatrix}
+\Rightarrow
+\color{red}\boxed{\normalcolor y_1 = x_2}
+\boxed{\normalcolor y_2 = x_1} \normalcolor
+\)
+
+% ==================== APPLICAZIONI LINEARI ====================================
+
+\newpage
+
+\subsection{Applicazioni Lineari}
+
+\begin{definition}[Applicazioni Lineari]
+	Un'applicazione lineare è una funzione tra due spazi vettoriali che ne \color{ForestGreen}\underline{\normalcolor rispetta} \normalcolor la struttura, cioè la somma e il prodotto per scalari. \\
+	$\color{ForestGreen} V, W $ \normalcolor  spazi vettoriali \\
+	$\color{ForestGreen} F:V \longrightarrow W $ \normalcolor  si dice \color{ForestGreen} lineare \normalcolor se \\
+	\begin{enumerate}
+		\item $F(v_1 + v_2) = F(v_1) + F(v_2) \hspace{0.6cm} \forall v_1, v_2 \in V$
+		\item $F(\alpha v) = \alpha F(v) \hspace{0.6cm} \forall \alpha \in \mathbb{R}, \forall v \in V$
+	\end{enumerate}
+\end{definition}
+
+\textcolor{red}{Controesempi:}\\
+$F : \mathbb{R}^2 \longrightarrow \mathbb{R}^2$\\
+$F((x,y)) = F(x,y) = (x + 1, y) \text{ questa è la funzione}$\\
+$F(2,3) = (3,3)$ \textcolor{ForestGreen}{è lineare?} \\
+\textsf{\small Rispetto alla somma?}\\
+$F(\underbrace{(1,1) + (2,3)} _{F(\underbrace{3,4} _{(4,4)})}) \overset{?}{=} F(1,1) + F(2,3) = (\underbrace{2} _{x + 1},1) + (\underbrace{3} _{x + 1},3) = (5,4)$ \\
+$F(\underbrace{(1,1) + (2,3)} _{(4,4)} \neq \underbrace{F(1,1) + F(2,3)} _{(5,4)}$ \textsf{ F NON è lineare}\\
+\textcolor{red}{\underline{Oss.:}} $F : V \longrightarrow W \text{ lineare allora}$\\
+$F(0v) = 0w$ \textsf{ Infatti, }\\
+$F(0v) = F(0 \cdot v) = 0 \cdot F(v)$\\
+\textsf{\small Quindi l'esempio di prima (il controesempio) precedente non era lineare anche perchè $F(0,0) = (1,0)$}\\
+\textcolor{red}{\underline{Esempio}:} $F : \mathbb{R}^2 \longrightarrow \mathbb{R}^2$\\
+$F(x,y) = (x^2, y - x) \text{ equazione \underline{non} lineare, il grado deve essere 1 se c'è un esponente di grado > 1. L'eq. non è lineare.}$\\
+$F(\underbrace{2(1,1)} _{F(\underbrace{2,2} _{(4,0)})}) \overset{?}{=} 2F(1,1) = 2\cdot(1,0) = (2,0)$ \\
+$F(\underbrace{2(1,1)} _{(4,0)} \neq \underbrace{2F(1,1)} _{(2,0)}$ \textsf{ F NON è lineare}\\
+\textcolor{red}{\underline{Esempio}:} $F : \mathbb{R}^2 \longrightarrow \mathbb{R}^2$\\
+$F(x,y) = (\underbrace{x + y} _{x}, \underbrace{-y} _{y})$ \\
+\enlargethispage{1\linewidth}
+$F(\underbrace{(1,1) + (2,3)} _{F(\underbrace{3,4} _{(7,-4)})}) \overset{?}{=} F(1,1) + F(2,3) = (2,-1) + (5,-3) = (7,-4)$ \\
+$F(\underbrace{(1,1) + (2,3)} _{(7,-4)} = \underbrace{F(1,1) + F(2,3)} _{(7,-4)}$ \textsf{ F potrebbe essere lineare}\\
+
+\textsf{va verificata anche rispetto al prodotto.}\\
+
+\newpage
+
+$\color{red}\boxed{\text{\normalcolor Cosa abbiamo imparato: se F è lineare}} \normalcolor$\\
+\begin{itemize}
+	\item \textsf{\small non ci devono essere "termini noti" nelle sue equazioni (altrimenti $F(0v) \neq (ow)$.}
+	\item \textsf{\small non ci devono essere termini di grado $\geq 2$.}
+\end{itemize}
+\textsf{\small Inoltre, ci vanno bene esempi in cui le equazioni sono \underline{lineari omogenee}}\\
+
